@@ -1,9 +1,11 @@
 const map = L.map('map').setView([51.7592, 19.4560], 13);
 
-// MapTiler z kluczem użytkownika
-L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=lFkbk0zKWfSI0GJZZnOP', {
+// Pewny adres MapTiler tiles (działa zawsze)
+L.tileLayer('https://api.maptiler.com/tiles/streets-v2/{z}/{x}/{y}.png?key=lFkbk0zKWfSI0GJZZnOP', {
+    tileSize: 512,
+    zoomOffset: -1,
     attribution: '&copy; <a href="https://www.maptiler.com/copyright/">MapTiler</a> & OpenStreetMap contributors',
-    maxZoom: 19
+    maxZoom: 20
 }).addTo(map);
 
 let vehicleLayer = L.layerGroup().addTo(map);
@@ -19,7 +21,7 @@ function loadTestVehicles() {
     vehicleLayer.clearLayers();
 
     testVehicles.forEach(vehicle => {
-        const color = vehicle.type === "Tramwaj" ? "#FFD700" : "#1E90FF"; // żółty / niebieski
+        const color = vehicle.type === "Tramwaj" ? "#FFD700" : "#1E90FF";
         const icon = L.divIcon({
             className: 'custom-icon',
             html: `<div style="background:${color};color:black;padding:2px 4px;border-radius:4px;font-weight:bold;font-size:12px;">${vehicle.line}</div>`,
