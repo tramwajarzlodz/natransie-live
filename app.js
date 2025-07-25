@@ -1,8 +1,8 @@
-const map = L.map('map').setView([51.7592, 19.4560], 13); // Centrum Łodzi
+const map = L.map('map').setView([51.7592, 19.4560], 13);
 
-// Alternatywny, bardziej niezawodny styl OpenStreetMap (działa na GitHub Pages)
-L.tileLayer('https://tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors',
+// MapTiler z kluczem użytkownika
+L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=lFkbk0zKWfSI0GJZZnOP', {
+    attribution: '&copy; <a href="https://www.maptiler.com/copyright/">MapTiler</a> & OpenStreetMap contributors',
     maxZoom: 19
 }).addTo(map);
 
