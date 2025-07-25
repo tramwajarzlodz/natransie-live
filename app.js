@@ -1,11 +1,10 @@
 const map = L.map('map').setView([51.7592, 19.4560], 13);
 
-// Działająca mapa MapTiler (basic-v2)
-L.tileLayer('https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=lFkbk0zKWfSI0GJZZnOP', {
-    attribution: '&copy; <a href="https://www.maptiler.com/">MapTiler</a> & OpenStreetMap contributors',
-    tileSize: 512,
-    zoomOffset: -1,
-    maxZoom: 20
+// Publiczny i stabilny serwer proxy kafelków OpenStreetMap (działa zawsze)
+L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    subdomains: 'abc',
+    maxZoom: 20,
 }).addTo(map);
 
 let vehicleLayer = L.layerGroup().addTo(map);
